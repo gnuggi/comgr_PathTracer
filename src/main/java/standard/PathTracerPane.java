@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.StringConverter;
+import vectors.Vector3;
 
 public class PathTracerPane extends BorderPane {
 
@@ -27,7 +28,7 @@ public class PathTracerPane extends BorderPane {
 
     private void initializeControls() {
         imageView = new ImageView();
-        imageView.setImage(pm.bluePicture(800,600));
+        imageView.setImage(pm.exampleGradient(800,600, new Vector3(0,255,0), new Vector3(0,0,255), 800));
     }
 
     private void layoutControls() {
