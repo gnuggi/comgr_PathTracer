@@ -27,8 +27,23 @@ public class PathTracerPane extends BorderPane {
     }
 
     private void initializeControls() {
-        imageView = new ImageView();
-        imageView.setImage(pm.exampleGradient(800,600, new Vector3(0,255,0), new Vector3(0,0,255), 800));
+        //imageView = new ImageView();
+        //imageView.setImage(pm.exampleGradient(800,600, new Vector3(0,255,0), new Vector3(0,0,255), 800));
+        Sphere sphA = new Sphere(-1001, 0, 0, 1000, new Vector3(0.8, 0, 0));
+        Sphere sphB = new Sphere(1001, 0, 0, 1000, new Vector3(0, 0, 0.8));
+        Sphere sphC = new Sphere(0, 0, 1001, 1000, new Vector3(0.5, 0.5, 0.5));
+        Sphere sphD = new Sphere(0, -1001, 0, 1000, new Vector3(0.5, 0.5, 0.5));
+        Sphere sphE = new Sphere(0, 1001, 0, 1000, new Vector3(0, 0, 0));
+        Sphere sphF = new Sphere((float)-0.6, (float)-0.7, (float)-0.6, (float)0.3, new Vector3(0, 0.8, 0));
+        Sphere sphG = new Sphere((float)0.3, (float)-0.4, (float)0.3, (float)0.6, new Vector3(0.8, 0, 0.8));
+        Scene scene = new Scene(new Vector3(0,0,-4), new Vector3(0,0,6), 36);
+        scene.addSphere(sphA);
+        scene.addSphere(sphB);
+        scene.addSphere(sphC);
+        scene.addSphere(sphD);
+        scene.addSphere(sphE);
+        scene.addSphere(sphF);
+        scene.addSphere(sphG);
     }
 
     private void layoutControls() {

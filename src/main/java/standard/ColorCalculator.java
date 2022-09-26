@@ -5,11 +5,11 @@ import static java.lang.Math.pow;
 public class ColorCalculator {
 
     public Vector3 convertSRGBtoLRGB(Vector3 srgb){
-        System.out.println("convert0: " + srgb.x() + " " + srgb.y() + " " + srgb.z());
+        //System.out.println("convert0: " + srgb.x() + " " + srgb.y() + " " + srgb.z());
         Vector3 scaled = scaleSRGBtoLRGB(srgb);
-        System.out.println("convert1: " + scaled.x() + " " + scaled.y() + " " + scaled.z());
+        //System.out.println("convert1: " + scaled.x() + " " + scaled.y() + " " + scaled.z());
         Vector3 corrected = gammaCorrectSRGBtoLRGB(scaled);
-        System.out.println("convert2: " + corrected.x() + " " + corrected.y() + " " + corrected.z());
+        //System.out.println("convert2: " + corrected.x() + " " + corrected.y() + " " + corrected.z());
         return corrected;
     }
 
