@@ -31,6 +31,12 @@ public class tracingTools {
 
             float discriminant = (float) (Math.pow(b, 2) - 4*a*c);
 
+            if(discriminant > 0) {
+                float gamma1 = (float) (-b + Math.sqrt(discriminant))/ (2*a);
+                float gamma2 = (float) (-b - Math.sqrt(discriminant))/ (2*a);
+            } else if (discriminant == 0) {
+                float gamma = -b / (2*a);
+            }
         }
 
 
