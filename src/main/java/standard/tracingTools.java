@@ -20,6 +20,22 @@ public class tracingTools {
         return fNorm.add(temp1).add(temp2);
     }
 
+    public Vector2 FindClosestHitPointSphere(Scene s, Vector3 o, Vector3 d) {
 
+        for(Sphere sphere : s.getSpheres()) {
+            Vector3 co = o.subtract(sphere.getCenter());
+
+            float a = 1;
+            float b = Vector3.dot(co.multiply(2), d);
+            float c = (float) (Math.pow(co.length(), 2) - Math.pow(sphere.getRadius(), 2));
+
+            float discriminant = (float) (Math.pow(b, 2) - 4*a*c);
+
+        }
+
+
+
+        return new Vector2(0,0);
+    }
 
 }

@@ -13,4 +13,11 @@ public class Sphere {
         this.r = r;
         this.color = color;
     }
+
+    public Vector3 getCenter() {
+        return new Vector3(x,y,z);
+    }
+    public float getRadius() {
+        return r;
+    }
 }

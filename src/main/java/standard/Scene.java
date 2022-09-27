@@ -17,6 +17,10 @@ public class Scene {
         this.fov = fov;
     }
 
+    public List<Sphere> getSpheres() {
+        return spheres;
+    }
+
     public void addSphere(Sphere sphere) {
         spheres.add(sphere);
     }
