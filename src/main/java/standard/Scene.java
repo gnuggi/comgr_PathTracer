@@ -17,6 +17,18 @@ public class Scene {
         this.fov = fov;
     }
 
+    public Vector3 getEye() {
+        return eye;
+    }
+
+    public Vector3 getLookAt() {
+        return lookAt;
+    }
+
+    public float getFov() {
+        return fov;
+    }
+
     public List<Sphere> getSpheres() {
         return spheres;
     }

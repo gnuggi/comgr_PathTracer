@@ -20,4 +20,8 @@ public class Sphere {
     public float getRadius() {
         return r;
     }
+
+    public Vector3 getColor() {
+        return color;
+    }
 }

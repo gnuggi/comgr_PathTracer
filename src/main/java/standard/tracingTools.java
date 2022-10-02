@@ -3,6 +3,10 @@ package standard;
 import vectors.Vector2;
 import vectors.Vector3;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class tracingTools {
 
     public Vector3 CreateEyeRay(Vector3 eye, Vector3 lookAt, float fov, Vector2 pixel) {
@@ -20,7 +24,9 @@ public class tracingTools {
         return fNorm.add(temp1).add(temp2);
     }
 
-    public Vector2 FindClosestHitPointSphere(Scene s, Vector3 o, Vector3 d) {
+    public Vector3 FindClosestHitPointSphere(Scene s, Vector3 o, Vector3 d) {
+
+        Map<Sphere, Vector3> hitPoints = new HashMap<Sphere, Vector3>();
 
         for(Sphere sphere : s.getSpheres()) {
             Vector3 co = o.subtract(sphere.getCenter());
@@ -34,14 +40,42 @@ public class tracingTools {
             if(discriminant > 0) {
                 float gamma1 = (float) (-b + Math.sqrt(discriminant))/ (2*a);
                 float gamma2 = (float) (-b - Math.sqrt(discriminant))/ (2*a);
+
+                if(gamma1 < gamma2 && gamma1 > 0) {
+                    Vector3 h = o.add(Vector3.normalize(d).multiply(gamma1));
+                    hitPoints.put(sphere, h);
+                } else if(gamma2 < gamma1 && gamma2 > 0) {
+                    Vector3 h = o.add(Vector3.normalize(d).multiply(gamma2));
+                    hitPoints.put(sphere, h);
+                }
+
             } else if (discriminant == 0) {
                 float gamma = -b / (2*a);
+                if(gamma >= 0) {
+                    Vector3 h = o.add(Vector3.normalize(d).multiply(gamma));
+                    hitPoints.put(sphere, h);
+                }
             }
         }
 
 
+        Vector3 closestHitPoint = new Vector3(0,0,0);
+        Vector3 color =  new Vector3(0,0,0);
 
-        return new Vector2(0,0);
+        for(Map.Entry<Sphere, Vector3> entry : hitPoints.entrySet()) {
+            if(entry.getValue().length() < closestHitPoint.length()){
+                closestHitPoint = entry.getValue();
+                color = entry.getKey().getColor();
+            }
+        }
+
+        return color;
     }
 
+    public Vector3 ComputeColor(Vector3 color) {
+
+
+
+        return new Vector3(0,0,0);
+    }
 }
