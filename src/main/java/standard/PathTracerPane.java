@@ -36,7 +36,7 @@ public class PathTracerPane extends BorderPane {
         Sphere sphE = new Sphere(0, 1001, 0, 1000, new Vector3(0, 0, 0));
         Sphere sphF = new Sphere((float)-0.6, (float)-0.7, (float)-0.6, (float)0.3, new Vector3(0, 0.8, 0));
         Sphere sphG = new Sphere((float)0.3, (float)-0.4, (float)0.3, (float)0.6, new Vector3(0.8, 0, 0.8));
-        Scene scene = new Scene(new Vector3(-0.9, -0.5, 0.9), new Vector3(0,0,0), 36);
+        Scene scene = new Scene(new Vector3(-0.9, -0.5, 0.9), new Vector3(0,0,0), 110);
         scene.addSphere(sphA);
         scene.addSphere(sphB);
         scene.addSphere(sphC);
@@ -45,11 +45,7 @@ public class PathTracerPane extends BorderPane {
         scene.addSphere(sphF);
         scene.addSphere(sphG);
 
-        Vector3 eye = new Vector3(-0.9, -0.5, 0.9);
-        Vector3 lookAt = new Vector3(0,0,0);
-        float fov = 110;
-
-        imageView.setImage(pm.pathTracer(800, 600, eye, lookAt, fov, scene));
+        imageView.setImage(pm.pathTracer(800, 600, scene.getEye(), scene.getLookAt(), scene.getFov(), scene));
     }
 
     private void layoutControls() {

@@ -59,12 +59,12 @@ public class tracingTools {
         }
 
 
-        Vector3 closestHitPoint = new Vector3(0,0,0);
+        Vector3 closestHitPoint = new Vector3(10000,10000,10000);
         Vector3 color =  new Vector3(0,0,0);
 
         for(Map.Entry<Sphere, Vector3> entry : hitPoints.entrySet()) {
             //System.out.println(entry.getValue().length());
-            if(entry.getValue().length() > closestHitPoint.length()){
+            if(entry.getValue().length() < closestHitPoint.length()){
                 closestHitPoint = entry.getValue();
                 color = entry.getKey().getColor();
             }
