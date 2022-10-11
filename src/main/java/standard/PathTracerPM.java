@@ -55,15 +55,17 @@ public class PathTracerPM {
     public Image pathTracer(int width, int height, Vector3 eye, Vector3 lookAt, float fov, Scene s) {
         WritableImage img = new WritableImage(width , height);
         PixelWriter pw = img.getPixelWriter();
-        for(int i = 0; i < width; i++){
+        for(int k = 0; k < width; k++){
             for (int j = 0; j < height; j++){
 
                 //System.out.println("1: " + color1.x() + " " + color1.y() + " " + color1.z() + " / " + color2.x() + " " + color2.y() + " " + color2.z());
 
-                float curX = -1 + (float)(2/width) * width;
-                float curY = -1 + (float)(2/height) * height;
+                float curX = -1 + ((float)2)/width * k;
+                float curY = -1 + ((float)2)/height * j;
 
                 Vector2 pixel = new Vector2(curX, curY);
+
+                System.out.println(pixel);
 
                 Vector3 eyeRay = tools.CreateEyeRay(s.getEye(), s.getLookAt(),s.getFov(), pixel);
 
@@ -72,7 +74,7 @@ public class PathTracerPM {
                 //System.out.println("2: " + lrgb1.x() + " " + lrgb1.y() + " " + lrgb1.z() + " / " + lrgb2.x() + " " + lrgb2.y() + " " + lrgb2.z());
 
                 Vector3 pixelColor = colCalc.convertLRGBtoSRGB(color);
-                pw.setColor(i, j, Color.rgb((int)pixelColor.x(), (int)pixelColor.y(), (int)pixelColor.z()));
+                pw.setColor(k, j, Color.rgb((int)pixelColor.x(), (int)pixelColor.y(), (int)pixelColor.z()));
 
                 //System.out.println("3: " +(int)pixelColor.x() + " " + (int)pixelColor.y() + " " +  (int)pixelColor.z());
             }

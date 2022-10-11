@@ -28,6 +28,8 @@ public class tracingTools {
 
         Map<Sphere, Vector3> hitPoints = new HashMap<Sphere, Vector3>();
 
+
+
         for(Sphere sphere : s.getSpheres()) {
             Vector3 co = o.subtract(sphere.getCenter());
 
