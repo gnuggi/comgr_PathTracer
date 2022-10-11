@@ -36,7 +36,7 @@ public class PathTracerPane extends BorderPane {
         Sphere sphE = new Sphere(0, 1001, 0, 1000, new Vector3(0, 0, 0));
         Sphere sphF = new Sphere((float)-0.6, (float)-0.7, (float)-0.6, (float)0.3, new Vector3(0, 0.8, 0));
         Sphere sphG = new Sphere((float)0.3, (float)-0.4, (float)0.3, (float)0.6, new Vector3(0.8, 0, 0.8));
-        Scene scene = new Scene(new Vector3(0,0,-4), new Vector3(0,0,6), 36);
+        Scene scene = new Scene(new Vector3(-0.9, -0.5, 0.9), new Vector3(0,0,0), 36);
         scene.addSphere(sphA);
         scene.addSphere(sphB);
         scene.addSphere(sphC);

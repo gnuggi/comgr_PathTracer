@@ -18,17 +18,15 @@ public class tracingTools {
         Vector3 fNorm = Vector3.normalize(f);
         Vector3 rNorm = Vector3.normalize(r);
         Vector3 uNorm = Vector3.normalize(u);
-        Vector3 temp1 = rNorm.multiply((float)(Math.tan(fov/2)* pixel.x()));
-        Vector3 temp2 = uNorm.multiply((float)(Math.tan(fov/2)* pixel.y()));
+        Vector3 temp1 = rNorm.multiply(((float)Math.tan(fov/2)* pixel.x()));
+        Vector3 temp2 = uNorm.multiply(((float)Math.tan(fov/2)* pixel.y()));
 
         return fNorm.add(temp1).add(temp2);
     }
 
     public Vector3 FindClosestHitPointSphere(Scene s, Vector3 o, Vector3 d) {
 
-        Map<Sphere, Vector3> hitPoints = new HashMap<Sphere, Vector3>();
-
-
+        Map<Sphere, Vector3> hitPoints = new HashMap<>();
 
         for(Sphere sphere : s.getSpheres()) {
             Vector3 co = o.subtract(sphere.getCenter());
@@ -65,7 +63,8 @@ public class tracingTools {
         Vector3 color =  new Vector3(0,0,0);
 
         for(Map.Entry<Sphere, Vector3> entry : hitPoints.entrySet()) {
-            if(entry.getValue().length() < closestHitPoint.length()){
+            //System.out.println(entry.getValue().length());
+            if(entry.getValue().length() > closestHitPoint.length()){
                 closestHitPoint = entry.getValue();
                 color = entry.getKey().getColor();
             }

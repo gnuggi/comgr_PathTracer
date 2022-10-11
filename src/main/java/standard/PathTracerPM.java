@@ -65,12 +65,12 @@ public class PathTracerPM {
 
                 Vector2 pixel = new Vector2(curX, curY);
 
-                System.out.println(pixel);
-
                 Vector3 eyeRay = tools.CreateEyeRay(s.getEye(), s.getLookAt(),s.getFov(), pixel);
 
-                Vector3 color = tools.FindClosestHitPointSphere(s, s.getEye(), eyeRay);
+                //System.out.println(eyeRay);
 
+                Vector3 color = tools.FindClosestHitPointSphere(s, s.getEye(), eyeRay);
+                System.out.println(color);
                 //System.out.println("2: " + lrgb1.x() + " " + lrgb1.y() + " " + lrgb1.z() + " / " + lrgb2.x() + " " + lrgb2.y() + " " + lrgb2.z());
 
                 Vector3 pixelColor = colCalc.convertLRGBtoSRGB(color);
